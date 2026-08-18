@@ -1,0 +1,140 @@
+import { Project } from "@/types/portfolio";
+
+export const projects: Project[] = [
+  {
+    id: "jobpilot-ai",
+    title: "JobPilot AI",
+    subtitle: "AI-Powered Job Search Copilot",
+    category: "hero",
+    featured: true,
+    technologies: [
+      "AI Agents",
+      "n8n",
+      "LLM APIs",
+      "RAG",
+      "Pinecone",
+      "Gmail API",
+      "Next.js",
+      "Supabase",
+    ],
+    description:
+      "An AI-powered job search copilot designed to automate and intelligently streamline the job discovery and application workflow.",
+    highlights: [
+      "Automated job discovery using Adzuna",
+      "AI-powered resume parsing and analysis",
+      "Structured resume intelligence using LLMs",
+      "Context-aware job matching",
+      "Private capability and transferable-skill matching",
+      "RAG-based contextual processing",
+      "AI-generated recruiter communication",
+      "Resume optimization workflows",
+      "Job matching persistence",
+      "Authentication and protected user workflows",
+      "Supabase Storage and database integration",
+    ],
+  },
+
+  {
+    id: "ashevo-leadflow",
+    title: "ASHEVO LeadFlow",
+    subtitle: "AI-Powered Lead Qualification & Response Automation",
+    category: "hero",
+    featured: true,
+    technologies: [
+      "n8n",
+      "LLM APIs",
+      "Airtable",
+      "Gmail API",
+      "Webhooks",
+      "Structured AI Output",
+    ],
+    description:
+      "An AI-powered lead processing system that captures incoming business enquiries, analyzes their requirements, categorizes and scores leads, stores them in a CRM, and automatically sends personalized responses.",
+    highlights: [
+      "Webhook-based lead capture",
+      "LLM-powered lead analysis",
+      "Structured AI output",
+      "Lead scoring",
+      "Service categorization",
+      "AI-generated personalized emails",
+      "Airtable CRM storage",
+      "Dynamic email routing",
+      "Gmail integration",
+      "Automatic contact-status updates",
+      "HTML email formatting",
+      "Tested across Low, Medium and High-value leads",
+    ],
+  },
+
+  {
+    id: "devlens",
+    title: "DevLens",
+    subtitle: "AI-Powered GitHub Issue Triage & Semantic Duplicate Detection",
+    category: "project",
+    technologies: [
+      "AI",
+      "GitHub",
+      "NLP / Embeddings",
+      "Semantic Search",
+      "Full Stack",
+    ],
+    description:
+      "An AI-powered developer platform designed to intelligently analyze GitHub issues, assist with issue triage, and identify semantically similar or duplicate issues.",
+    highlights: [
+      "GitHub issue analysis",
+      "Semantic duplicate detection",
+      "AI-powered triage",
+      "Issue classification",
+      "Developer productivity",
+      "Repository intelligence",
+    ],
+  },
+
+  {
+    id: "placeiq",
+    title: "PlaceIQ",
+    subtitle: "AI-Powered Placement Prediction & Career Guidance System",
+    category: "project",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Machine Learning",
+    ],
+    description:
+      "Engineered an AI-powered placement platform combining machine-learning inference with modular REST APIs to provide students with placement predictions and career guidance.",
+    highlights: [
+      "Machine-learning inference",
+      "Placement prediction",
+      "Career guidance",
+      "JWT authentication",
+      "Secure student profiles",
+      "React dashboards",
+      "REST APIs",
+      "Express.js backend",
+      "MongoDB data layer",
+    ],
+  },
+
+  {
+    id: "sprintdesk",
+    title: "SprintDesk",
+    subtitle: "Scalable Project Management Backend",
+    category: "project",
+    technologies: ["Node.js", "Express.js", "MongoDB", "JWT", "REST APIs"],
+    description:
+      "A scalable backend system for project and task management with secure authentication, role-based access control, and modular REST APIs.",
+    highlights: [
+      "JWT authentication",
+      "Role-based access control",
+      "Project management",
+      "Task management",
+      "Team management",
+      "MongoDB / Mongoose",
+      "API validation",
+      "Authorization",
+      "Centralized error handling",
+    ],
+  },
+];
