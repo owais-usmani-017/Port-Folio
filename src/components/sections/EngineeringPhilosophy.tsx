@@ -62,8 +62,9 @@ export default function EngineeringPhilosophy() {
           subtitle="A structured, disciplined methodology to transform ambiguity into production-grade systems."
           badgeColor="orange"
         />
+        <br />
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid  h-75 gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -77,26 +78,26 @@ export default function EngineeringPhilosophy() {
               >
                 <div>
                   {/* Step Header */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex relative left-3 top-3 items-center justify-between">
                     <div
                       className={`flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr ${step.color} text-white shadow-md transition-transform duration-300 group-hover:scale-110`}
                     >
                       <Icon size={18} />
                     </div>
-                    <span className="font-mono text-xs font-extrabold text-[var(--foreground-muted)] opacity-60">
+                    <span className="relative right-4 font-mono text-xs font-extrabold text-[var(--foreground-muted)] opacity-60">
                       STEP {step.number}
                     </span>
                   </div>
 
-                  <h3 className="mt-6 text-xl font-bold text-[var(--foreground)] group-hover:text-amber-500 transition-colors">
+                  <h3 className="relative left-3 top-5 mt-6 text-xl font-bold text-[var(--foreground)] group-hover:text-amber-500 transition-colors">
                     {step.title}
                   </h3>
 
-                  <p className="text-xs font-semibold text-amber-500/80">
+                  <p className="text-xs relative left-3 top-5 font-semibold text-amber-500/80">
                     {step.subtitle}
                   </p>
 
-                  <p className="mt-4 text-xs sm:text-sm leading-relaxed text-[var(--foreground-secondary)]">
+                  <p className="relative left-3 top-9 mt-4 text-xs sm:text-sm leading-relaxed text-[var(--foreground-secondary)]">
                     {step.description}
                   </p>
                 </div>
