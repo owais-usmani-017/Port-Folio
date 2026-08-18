@@ -33,7 +33,7 @@ export default function Hero() {
           >
             {/* Status Pill */}
             <div className="mb-12 inline-flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400 backdrop-blur-md">
+              <span className="inline-flex  items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1.5 text-xs font-semibold text-amber-600 dark:text-amber-400 backdrop-blur-md">
                 <Sparkles
                   size={14}
                   className="animate-spin text-amber-500"
@@ -150,7 +150,7 @@ export default function Hero() {
                     sizes="(max-width: 640px) 340px, 420px"
                     className="object-cover object-top transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)]/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)]/30 via-transparent to-transparent pointer-events-none" />
 
                   {/* Inside Photo Overlay Pill */}
                 </div>
