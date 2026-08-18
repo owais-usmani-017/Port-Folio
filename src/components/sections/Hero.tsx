@@ -71,17 +71,20 @@ export default function Hero() {
             {/* CTAs */}
             <div className="mt-[4.5rem] flex flex-wrap items-center gap-5">
               <a
-                href="#portfolio"
-                className="inline-flex items-center gap-10 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 px-20 py-6 text-base font-bold text-white shadow-xl shadow-amber-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/45 hover:-translate-y-1 hover:scale-[1.03] active:translate-y-0 active:scale-100"
+                href="#projects"
+                className="hidden h-12 min-w-[190px] items-center justify-center rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-8 text-sm font-bold text-white shadow-lg shadow-amber-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-xl hover:shadow-amber-500/40 active:scale-[0.98] sm:inline-flex"
               >
                 Explore Projects
-                <ArrowUpRight size={20} />
+                <ArrowUpRight size={18} />
               </a>
 
               <a
                 href="/resume/Owais-Usmani-Resume.pdf"
                 download
-                className="inline-flex items-center gap-10 rounded-2xl border-2 border-[var(--card-border)] bg-[var(--card-bg)] px-20 py-6 text-base font-bold text-[var(--foreground)] shadow-md transition-all duration-300 hover:border-amber-500/60 hover:bg-[var(--card-bg-subtle)] hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg active:translate-y-0 active:scale-100"
+                className="hidden h-12 min-w-[190px] rounded-xl items-center justify-center border-2 
+                border-[var(--card-border)] bg-[var(--card-bg)] px-20 py-6 text-base font-bold text-[var(--foreground)] shadow-md transition-all duration-300 hover:border-amber-500/60 hover:bg-[var(--card-bg-subtle)]
+                 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-xl hover:shadow-amber-500/40 active:scale-[0.98] sm:inline-flex"
+                
               >
                 Download CV
                 <Download size={19} className="text-amber-500" />
