@@ -27,7 +27,7 @@ const capabilities = [
     icon: Workflow,
     number: "02",
     title: "Autonomous Automation",
-    color: "orange",
+    color: "amber",
     gradient: "from-orange-500 to-rose-500",
     badgeColor: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
     description:
@@ -92,8 +92,9 @@ export default function WhatIBuild() {
           subtitle="Transforming complex technical ideas, data pipelines, and requirements into intuitive, reliable software."
           badgeColor="orange"
         />
+        <br />
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6  md:grid-cols-2 text-sm">
           {capabilities.map((capability, index) => {
             const Icon = capability.icon;
             return (
@@ -103,7 +104,7 @@ export default function WhatIBuild() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="designer-card group relative flex flex-col justify-between overflow-hidden rounded-3xl p-8 lg:p-9"
+                className=" min-h-[200px] designer-card group relative flex flex-col justify-between overflow-hidden rounded-3xl p-8 lg:p-9"
               >
                 {/* Top Subtle Gradient Accent */}
                 <div
@@ -112,34 +113,35 @@ export default function WhatIBuild() {
 
                 <div>
                   {/* Top Bar: Icon + Number */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex top-2 left-2 relative items-center gap-20">
                     <div
                       className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr ${capability.gradient} text-white shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-2`}
                     >
                       <Icon size={24} />
                     </div>
-                    <span className="font-mono text-sm font-extrabold text-[var(--foreground-muted)] opacity-50">
+
+                    {/* Title */}
+                    <h3 className="mt-6 text-2xl font-bold top-2 left-2 relative tracking-tight text-[var(--foreground)] transition-colors duration-200 group-hover:text-amber-500">
+                      {capability.title}
+                    </h3>
+
+                    <span className="sticky right-0 relative text-sm font-extrabold text-[var(--foreground-muted)] opacity-50">
                       {capability.number}
                     </span>
                   </div>
-
-                  {/* Title */}
-                  <h3 className="mt-6 text-2xl font-bold tracking-tight text-[var(--foreground)] transition-colors duration-200 group-hover:text-amber-500">
-                    {capability.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--foreground-secondary)]">
-                    {capability.description}
-                  </p>
                 </div>
 
+                {/* Description */}
+                <p className="top-3 left-1 tracking-tight relative mt-3 text-sm  text-[var(--foreground-secondary)]">
+                  {capability.description}
+                </p>
+
                 {/* Items Tag Cloud */}
-                <div className="mt-8 border-t border-[var(--card-border)] pt-6">
-                  <p className="mb-3 text-[11px] font-bold uppercase tracking-wider text-[var(--foreground-muted)]">
+                <div className="mt-8 top-4 min-h-[100px] relative top-0 border-t border-[var(--card-border)] pt-6">
+                  <p className="mb-3 left-1 relative text-[11px] font-bold uppercase tracking-wider text-[var(--foreground-muted)]">
                     Key Implementations
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex left-3 relative top-2 flex-wrap gap-2">
                     {capability.items.map((item) => (
                       <span
                         key={item}
