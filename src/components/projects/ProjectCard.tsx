@@ -1,8 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Sparkles, Layers, Eye } from "lucide-react";
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Code2,
+  Eye,
+  GitBranch,
+  Sparkles,
+  Workflow,
+} from "lucide-react";
 import { Project } from "@/types/portfolio";
 
 interface ProjectCardProps {
@@ -16,145 +23,356 @@ export default function ProjectCard({
   featured = false,
   onQuickView,
 }: ProjectCardProps) {
-  // Determine vibrant badge/gradient theme based on project id/tech
   const isAI = project.technologies.some((t) =>
-    ["AI Agents", "LLM APIs", "RAG", "Machine Learning", "NLP / Embeddings"].includes(t)
+    [
+      "AI Agents",
+      "LLM APIs",
+      "RAG",
+      "Machine Learning",
+      "NLP / Embeddings",
+      "AI",
+    ].includes(t),
   );
-  const isAutomation = project.technologies.includes("n8n") || project.technologies.includes("Webhooks");
 
-  const badgeTheme = isAI
+  const isAutomation =
+    project.technologies.includes("n8n") ||
+    project.technologies.includes("Webhooks");
+
+  const theme = isAI
     ? {
-        label: "AI System",
-        class: "bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-500/20",
-        glow: "from-amber-500 to-orange-500",
+        accent: "text-orange-500",
+        border: "border-orange-500/20",
+        soft: "bg-orange-500/[0.07]",
+        iconBg: "bg-orange-500/[0.08]",
+        gradient: "from-orange-500/10 via-white to-amber-50",
+        glow: "bg-orange-400/[0.12]",
+        line: "from-orange-500 to-amber-400",
       }
     : isAutomation
-    ? {
-        label: "Workflow Automation",
-        class: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/20",
-        glow: "from-orange-500 to-rose-500",
-      }
-    : {
-        label: "Full-Stack Web",
-        class: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20",
-        glow: "from-indigo-500 to-purple-500",
-      };
+      ? {
+          accent: "text-orange-500",
+          border: "border-orange-500/20",
+          soft: "bg-orange-500/[0.07]",
+          iconBg: "bg-orange-500/[0.08]",
+          gradient: "from-orange-500/10 via-white to-amber-50",
+          glow: "bg-orange-400/[0.12]",
+          line: "from-orange-500 to-orange-400",
+        }
+      : {
+          accent: "text-indigo-500",
+          border: "border-indigo-500/20",
+          soft: "bg-indigo-500/[0.07]",
+          iconBg: "bg-indigo-500/[0.08]",
+          gradient: "from-indigo-500/10 via-white to-purple-50",
+          glow: "bg-indigo-400/[0.10]",
+          line: "from-indigo-500 to-purple-400",
+        };
+
+  const CategoryIcon = isAI
+    ? BriefcaseBusiness
+    : isAutomation
+      ? Workflow
+      : Code2;
 
   return (
-    <article className="designer-card group relative flex flex-col justify-between overflow-hidden rounded-3xl">
-      {/* Top Gradient Glow Stripe */}
+    <article
+      className="
+        group relative flex h-full min-h-[450px] flex-col
+        overflow-hidden rounded-[24px]
+        border border-[var(--card-border)]
+        bg-white
+        shadow-[0_8px_30px_rgba(15,23,42,0.06)]
+        transition-all duration-300
+        hover:-translate-y-1
+        hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)]
+      "
+    >
+      {/* =========================================
+          TOP ACCENT LINE
+      ========================================= */}
+      <div className={`h-[4px] w-full bg-gradient-to-r ${theme.line}`} />
+
+      {/* =========================================
+          VISUAL / HERO AREA
+      ========================================= */}
       <div
-        className={`h-1.5 w-full bg-gradient-to-r ${badgeTheme.glow} opacity-80`}
-      />
+        className={`
+          relative h-[210px] shrink-0 overflow-hidden
+          bg-gradient-to-br ${theme.gradient}
+        `}
+      >
+        {/* Decorative background */}
+        <div
+          className={`
+            pointer-events-none absolute
+            -right-16 -top-16
+            h-64 w-64 rounded-full
+            ${theme.glow}
+            blur-3xl
+          `}
+        />
 
-      {/* Visual Header / Preview */}
-      <div className="relative overflow-hidden bg-[var(--card-bg-subtle)] p-6 pb-4 sm:p-7 sm:pb-5">
-        {project.image ? (
-          <div className="relative h-48 w-full overflow-hidden rounded-2xl">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-        ) : (
-          <div className="flex h-36 flex-col justify-between rounded-2xl border border-[var(--card-border)] bg-gradient-to-br from-[var(--card-bg)] to-[var(--background-subtle)] p-5">
-            <div className="flex items-center justify-between">
-              <span
-                className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-[11px] font-bold ${badgeTheme.class}`}
-              >
-                <Sparkles size={11} />
-                {badgeTheme.label}
-              </span>
-
-              {featured && (
-                <span className="rounded-full bg-amber-500 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-black">
-                  Featured
-                </span>
-              )}
-            </div>
-
-            <div className="flex items-end justify-between">
-              <span className="font-mono text-3xl font-extrabold text-[var(--foreground-muted)] opacity-20">
-                {project.title.slice(0, 3).toUpperCase()}
-              </span>
-              <span className="text-xs font-semibold text-amber-500">
-                {project.highlights.length} Architectural Modules
-              </span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Card Body */}
-      <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
-        <div>
-          {/* Title & Links */}
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h3 className="text-xl font-bold tracking-tight text-[var(--foreground)] transition-colors duration-200 group-hover:text-amber-500">
-                {project.title}
-              </h3>
-              <p className="mt-1 text-xs font-semibold text-[var(--foreground-secondary)]">
-                {project.subtitle}
-              </p>
-            </div>
-
-            <Link
-              href={`/projects/${project.id}`}
-              aria-label={`View details for ${project.title}`}
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--foreground)] transition-all duration-200 hover:border-amber-500 hover:bg-gradient-to-tr hover:from-amber-500 hover:to-orange-500 hover:text-white hover:scale-105"
-            >
-              <ArrowUpRight size={17} />
-            </Link>
-          </div>
-
-          {/* Description */}
-          <p className="mt-4 line-clamp-3 text-xs sm:text-sm leading-relaxed text-[var(--foreground-secondary)]">
-            {project.description}
-          </p>
+        {/* Decorative rings */}
+        <div className="pointer-events-none absolute -right-10 bottom-[-80px] h-64 w-64 opacity-40">
+          <div
+            className={`absolute inset-0 rounded-full border ${theme.border}`}
+          />
+          <div
+            className={`absolute inset-8 rounded-full border ${theme.border}`}
+          />
+          <div
+            className={`absolute inset-16 rounded-full border ${theme.border}`}
+          />
+          <div
+            className={`absolute inset-24 rounded-full border ${theme.border}`}
+          />
         </div>
 
-        {/* Tech Stack & Quick Actions */}
-        <div className="mt-6 border-t border-[var(--card-border)] pt-5">
-          <div className="flex flex-wrap gap-1.5">
-            {project.technologies.slice(0, 5).map((technology) => (
-              <span
-                key={technology}
-                className="rounded-lg border border-[var(--card-border)] bg-[var(--card-bg-subtle)] px-2 py-0.5 text-[11px] font-medium text-[var(--foreground-secondary)]"
-              >
-                {technology}
-              </span>
-            ))}
-            {project.technologies.length > 5 && (
-              <span className="rounded-lg bg-amber-500/10 px-2 py-0.5 text-[11px] font-bold text-amber-600 dark:text-amber-400">
-                +{project.technologies.length - 5}
-              </span>
-            )}
-          </div>
+        {/* Top badges */}
+        <div className="relative z-10 flex items-center justify-between px-5 pt-5">
+          {/* Deployment badge */}
+          <span
+            className={`
+              top-3 relative left-2
+              inline-flex items-center gap-1.5
+              rounded-xl border
+              bg-white/90
+              px-3 py-1.5
+              text-[11px] font-semibold
+              shadow-sm
+              ${theme.border}
+              ${theme.accent}
+            `}
+          >
+            <Sparkles size={12} strokeWidth={2.5} />
+            Deployed
+          </span>
 
-          {/* Bottom Actions */}
-          <div className="mt-5 flex items-center justify-between">
-            {onQuickView && (
-              <button
-                type="button"
-                onClick={() => onQuickView(project)}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--foreground-muted)] hover:text-amber-500 transition-colors"
-              >
-                <Eye size={14} />
-                Quick Preview
-              </button>
-            )}
-
-            <Link
-              href={`/projects/${project.id}`}
-              className="inline-flex items-center gap-1 text-xs font-bold text-amber-500 hover:underline ml-auto"
+          {/* Featured badge */}
+          {featured && (
+            <span
+              className="
+              relative right-2 top-3
+                rounded-xl
+                bg-amber-400
+                px-3 py-1.5
+                text-[10px]
+                font-extrabold
+                uppercase
+                tracking-wide
+                text-slate-900
+                shadow-sm
+              "
             >
-              Case Study &rarr;
-            </Link>
+              Featured
+            </span>
+          )}
+        </div>
+
+        {/* Large project icon */}
+        <div className="relative top-10 left-5 z-10 px-7 pt-10">
+          <div
+            className={`
+              flex h-[92px] w-[92px]
+              items-center justify-center
+              rounded-[24px]
+              ${theme.iconBg}
+              ${theme.accent}
+              shadow-[0_12px_30px_rgba(15,23,42,0.05)]
+              transition-transform duration-300
+              group-hover:scale-105
+            `}
+          >
+            <CategoryIcon size={46} strokeWidth={1.8} />
           </div>
+        </div>
+      </div>
+
+      {/* =========================================
+          CARD CONTENT
+      ========================================= */}
+      <div className="flex flex-1 flex-col px-5 pb-5 pt-5">
+        {/* Title */}
+        <div className="flex relative top-2 left-4 items-start justify-between gap-4">
+          <div className="min-w-0">
+            <h3
+              className="
+                text-[25px]
+                font-bold
+                leading-tight
+                tracking-[-0.03em]
+                text-[var(--foreground)]
+                transition-colors
+                duration-200
+                group-hover:text-orange-500
+              "
+            >
+              {project.title}
+            </h3>
+
+            <p
+              className="
+                top-1
+                relative
+                mt-3
+                text-[14px]
+                font-medium
+                leading-5
+                text-[var(--foreground-secondary)]
+              "
+            >
+              {project.subtitle}
+            </p>
+          </div>
+
+          {/* Open project */}
+          <Link
+            href={`/projects/${project.id}`}
+            aria-label={`View details for ${project.title}`}
+            className="
+            relative top-2 right-6
+              flex h-10 w-10
+              shrink-0
+              items-center justify-center
+              rounded-xl
+              border border-[var(--card-border)]
+              bg-white
+              text-[var(--foreground)]
+              transition-all duration-200
+              hover:border-orange-400
+              hover:bg-orange-500
+              hover:text-white
+              hover:scale-105
+            "
+          >
+            <ArrowUpRight size={19} />
+          </Link>
+        </div>
+
+        {/* Description */}
+        <p
+          className="
+            relative
+            tracking-tight
+            top-3
+            left-4
+            mt-3
+            line-clamp-3
+            text-[12px]
+            leading-[1.65]
+            text-[var(--foreground-secondary)]
+          "
+        >
+          {project.description}
+        </p>
+
+        {/* =========================================
+            TECHNOLOGIES
+        ========================================= */}
+        <div className="mt-5 flex flex-wrap gap-2">
+          {project.technologies.slice(0, 5).map((technology) => (
+            <span
+              key={technology}
+              className="
+                relative
+                top-6
+                left-4
+                rounded-lg
+                border border-[var(--card-border)]
+                bg-[var(--card-bg-subtle)]
+                px-2.5 py-1
+                text-[11px]
+                font-medium
+                text-[var(--foreground-secondary)]
+                transition-colors
+                group-hover:border-slate-200
+              "
+            >
+              {technology}
+            </span>
+          ))}
+
+          {project.technologies.length > 5 && (
+            <span
+              className="
+                rounded-lg
+                border border-orange-200
+                bg-orange-50
+                px-2.5 py-1
+                text-[11px]
+                font-semibold
+                text-orange-500
+              "
+            >
+              +{project.technologies.length - 5}
+            </span>
+          )}
+        </div>
+
+        {/* =========================================
+            FOOTER
+        ========================================= */}
+        <div
+          className="
+          absolute bottom-5 left-3 right-1
+            mt-auto
+            flex items-center justify-between
+            border-t border-[var(--card-border)]
+            pt-4
+          "
+        >
+          {/* GitHub / Quick preview */}
+          {onQuickView ? (
+            <button
+              type="button"
+              onClick={() => onQuickView(project)}
+              className="
+                inline-flex
+                items-center
+                gap-2
+                text-[13px]
+                font-medium
+                text-[var(--foreground-secondary)]
+                transition-colors
+                hover:text-orange-500
+              "
+            >
+              <GitBranch size={16} />
+              GitHub/owaisusmani
+            </button>
+          ) : (
+            <span
+              className="
+                inline-flex
+                items-center
+                gap-2
+                text-[13px]
+                font-medium
+                text-[var(--foreground-secondary)]
+              "
+            >
+              <GitBranch size={16} />
+              GitHub/owaisusmani
+            </span>
+          )}
+
+          {/* Case study */}
+          <Link
+            href={`/projects/${project.id}`}
+            className="
+              inline-flex
+              items-center
+              gap-2
+              text-[13px]
+              font-bold
+              text-orange-500
+              transition-all duration-200
+              hover:gap-3
+            "
+          >
+            Case Study
+            <ArrowUpRight size={17} />
+          </Link>
         </div>
       </div>
     </article>
