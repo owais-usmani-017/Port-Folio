@@ -33,43 +33,57 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section bg-[var(--background)] overflow-hidden">
+    <section
+      id="contact"
+      className="section bg-[var(--background)] overflow-hidden"
+    >
       <div className="ambient-glow ambient-glow-amber bottom-10 left-1/4 h-[350px] w-[350px]" />
       <div className="ambient-glow ambient-glow-indigo bottom-0 right-10 h-[300px] w-[300px]" />
 
-      <div className="container relative z-10">
+      <div className="container  relative h-140 z-10">
         <SectionHeading
           eyebrow="Get In Touch"
           title="Let's Build Something Great"
           subtitle="Have an opportunity, an AI project, or want to discuss full-stack engineering? Let's connect."
           badgeColor="emerald"
         />
+        <br />
 
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+        <div className="grid h-100 gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           {/* Main Inquiry Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="designer-card relative overflow-hidden rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-[var(--card-bg)] to-[var(--background-subtle)]"
+            className="designer-card h-100 relative overflow-hidden rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-[var(--card-bg)] to-[var(--background-subtle)]"
           >
             {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+            <div className="relative top-3 left-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
               Actively Reviewing Opportunities
             </div>
 
-            <h3 className="mt-6 text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--foreground)]">
-              Let&apos;s turn your vision into <span className="gradient-text-joy">working software</span>.
+            <h3 className="relative left-3 top-5 mt-6 text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--foreground)]">
+              Let&apos;s turn your vision into{" "}
+              <span className="gradient-text-joy">working software</span>.
             </h3>
 
-            <p className="mt-4 text-sm sm:text-base leading-relaxed text-[var(--foreground-secondary)]">
-              Whether you are hiring for an <span className="font-semibold text-[var(--foreground)]">AI Developer</span> or <span className="font-semibold text-[var(--foreground)]">Full-Stack Engineer</span> role, exploring an automation pipeline, or want to collaborate, my inbox is always open.
+            <p className="relative left-3 top-9 mt-4 text-sm sm:text-base leading-relaxed text-[var(--foreground-secondary)]">
+              Whether you are hiring for an{" "}
+              <span className="font-semibold text-[var(--foreground)]">
+                AI Developer
+              </span>{" "}
+              or{" "}
+              <span className="font-semibold text-[var(--foreground)]">
+                Full-Stack Engineer
+              </span>{" "}
+              role, exploring an automation pipeline, or want to collaborate, my
+              inbox is always open.
             </p>
 
             {/* Email Action Bar */}
-            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg-subtle)] p-2">
+            <div className="absolute left-3 bottom-3 w-full top- mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 rounded-2xl border border-[var(--card-border)] bg-[var(--card-bg-subtle)] p-2">
               <div className="flex items-center gap-3 px-3 py-2 text-xs sm:text-sm font-mono font-semibold text-[var(--foreground)] flex-1 overflow-x-auto">
                 <Mail size={16} className="text-amber-500 shrink-0" />
                 <span>{email}</span>
@@ -79,7 +93,7 @@ export default function Contact() {
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="flex flex-1 sm:flex-none items-center justify-center gap-1.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-3.5 py-2.5 text-xs font-bold text-[var(--foreground)] shadow-sm transition-all hover:bg-amber-500 hover:text-white active:scale-95"
+                  className="flex flex-1 relative right-5 sm:flex-none items-center justify-center gap-1.5 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-3.5 py-2.5 text-xs font-bold text-[var(--foreground)] shadow-sm transition-all hover:bg-amber-500 hover:text-white active:scale-95"
                 >
                   {copied ? (
                     <>
@@ -96,7 +110,7 @@ export default function Contact() {
 
                 <a
                   href={`mailto:${email}?subject=Project%20Inquiry%20/%20Opportunity`}
-                  className="flex flex-1 sm:flex-none items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-amber-500/20 hover:scale-105 active:scale-95 transition-transform"
+                  className="relative right-5 flex flex-1 sm:flex-none items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-amber-500/20 hover:scale-105 active:scale-95 transition-transform"
                 >
                   <Send size={14} />
                   Send Email
@@ -126,21 +140,26 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="space-y-4"
+            className="space-y-4 h-100 flex flex-col"
           >
             {/* Location & Timezone Card */}
-            <div className="designer-card rounded-3xl p-6">
+            <div className="h-37 designer-card rounded-3xl p-6">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
+                <div className="relative left-3 top-3 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-[var(--foreground)]">Location &amp; Availability</h4>
-                  <p className="text-xs text-[var(--foreground-muted)]">Delhi NCR, India · UTC+5:30</p>
+                  <h4 className="relative left-3 top-3 text-md font-bold text-[var(--foreground)]">
+                    Location &amp; Availability
+                  </h4>
+                  <p className="relative left-3 top-3 text-xs text-[var(--foreground-muted)]">
+                    Delhi NCR, India · UTC+5:30
+                  </p>
                 </div>
               </div>
-              <p className="mt-3 text-xs leading-relaxed text-[var(--foreground-secondary)]">
-                Available for on-site roles in Delhi NCR, Bangalore, remote worldwide, and relocation opportunities.
+              <p className="relative left-3 top-5 mt-3 text-xs leading-relaxed text-[var(--foreground-secondary)]">
+                Available for on-site roles in Delhi NCR, Bangalore, remote
+                worldwide, and relocation opportunities.
               </p>
             </div>
 
@@ -149,20 +168,25 @@ export default function Contact() {
               href="https://www.linkedin.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="designer-card group flex items-center justify-between rounded-3xl p-6 transition-all"
+              className="h-19 relative top-2 designer-card group flex items-center justify-between rounded-3xl p-6 transition-all"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                <div className="relative left-3 flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
                   <LinkedInIcon size={20} />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--foreground-muted)]">Network</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--foreground-muted)]">
+                    Network
+                  </p>
                   <p className="text-base font-bold text-[var(--foreground)] group-hover:text-blue-500 transition-colors">
                     LinkedIn Profile
                   </p>
                 </div>
               </div>
-              <ArrowUpRight size={18} className="text-[var(--foreground-muted)] group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              <ArrowUpRight
+                size={18}
+                className="text-[var(--foreground-muted)] group-hover:text-blue-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+              />
             </a>
 
             {/* GitHub Card */}
@@ -170,20 +194,50 @@ export default function Contact() {
               href="https://github.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="designer-card group flex items-center justify-between rounded-3xl p-6 transition-all"
+              className=" relative top-3 h-19 designer-card group flex items-center justify-between rounded-3xl p-6 transition-all"
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+                <div className="flex relative left-3 h-11 w-11 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
                   <GitHubIcon size={20} />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--foreground-muted)]">Code</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--foreground-muted)]">
+                    Code
+                  </p>
                   <p className="text-base font-bold text-[var(--foreground)] group-hover:text-indigo-500 transition-colors">
                     GitHub Repositories
                   </p>
                 </div>
               </div>
-              <ArrowUpRight size={18} className="text-[var(--foreground-muted)] group-hover:text-indigo-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              <ArrowUpRight
+                size={18}
+                className="text-[var(--foreground-muted)] group-hover:text-indigo-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+              />
+            </a>
+              {/*schedule call card */ }
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" relative top-4 h-20 designer-card group flex items-center justify-between rounded-3xl p-6 transition-all"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex relative left-3 h-11 w-11 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+                  <GitHubIcon size={20} />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[var(--foreground-muted)]">
+                    Direct Call
+                  </p>
+                  <p className="text-base font-bold text-[var(--foreground)] group-hover:text-indigo-500 transition-colors">
+                    Schedule a Call
+                  </p>
+                </div>
+              </div>
+              <ArrowUpRight
+                size={18}
+                className="text-[var(--foreground-muted)] group-hover:text-indigo-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+              />
             </a>
           </motion.div>
         </div>
