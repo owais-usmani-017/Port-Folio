@@ -217,252 +217,125 @@ h1, h2, .font-display {
   background: rgba(245, 158, 11, 0.6);
 }
 
-/* =========================================================
-   MOBILE & TABLET RESPONSIVE OVERRIDES ONLY (max-width: 1024px)
-   DESKTOP (> 1024px) STAYS 100% EXACT, SOPHISTICATED & UNTOUCHED
-   ========================================================= */
-
-@media (max-width: 1024px) {
-  /* Prevent horizontal overflow */
-  body, html {
-    overflow-x: hidden;
+/* Phone-only layout adjustments. Desktop and tablet utility styles remain intact. */
+@media (max-width: 1023px) {
+  /* Keep a consistent, comfortable inset once desktop cards stack or narrow. */
+  #about article {
+    padding: 1.5rem;
   }
 
+  #what-i-build .designer-card,
+  #skills .designer-card,
+  #education .designer-card,
+  #philosophy .designer-card,
+  #contact .designer-card {
+    padding: 1.5rem;
+  }
+
+  #experience .designer-card {
+    height: auto;
+  }
+
+  /* The cards already have padding; remove only their desktop visual offsets. */
+  #experience .relative {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+}
+
+@media (max-width: 767px) {
   .container,
   .about-container {
-    width: min(100% - 32px, 1200px) !important;
-    max-width: 100% !important;
-    height: auto !important;
+    width: calc(100% - 32px);
+    max-width: none;
   }
 
-  /* Universal reset for fixed height constraints on mobile */
-  .h-\[252px\],
-  .h-\[248px\],
-  .h-\[300px\],
-  .h-140,
-  .h-100,
-  .h-110,
-  .h-75,
-  .h-37,
-  .h-19,
-  .h-20 {
-    height: auto !important;
-    min-height: auto !important;
+  .section {
+    padding: 56px 0;
   }
 
-  /* Hero Section Mobile Fixes */
-  #home .hidden.sm\:inline-flex {
-    display: inline-flex !important;
+  #home {
+    min-height: auto;
+    padding-top: 128px;
+    padding-bottom: 64px;
   }
-  #home a[href="#projects"],
-  #home a[download],
-  #home a[href="#contact"] {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    gap: 8px !important;
-    min-width: auto !important;
-    width: 100% !important;
-    justify-content: center !important;
+
+  #home .grid {
+    gap: 56px;
   }
+
   #home .mt-\[4\.5rem\] {
-    margin-top: 2rem !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 12px !important;
+    margin-top: 2.5rem;
   }
+
   #home .mt-\[5\.5rem\] {
-    margin-top: 2.5rem !important;
-    gap: 12px !important;
-    padding-top: 20px !important;
+    margin-top: 3.5rem;
+    gap: 1rem;
+    padding-top: 1.5rem;
   }
 
-  /* About Section Mobile Fixes */
-  #about article {
-    height: auto !important;
-    padding: 24px !important;
-  }
-  #about .grid {
-    grid-template-columns: 1fr !important;
-    height: auto !important;
-  }
-  #about .left-30 {
-    position: static !important;
-    left: auto !important;
-  }
-  #about .pl-10,
-  #about .pr-10 {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  #about .top-3,
-  #about .top-5,
-  #about .bottom-10,
-  #about .left-4,
-  #about .right-4,
-  #about .left-5,
-  #about .right-0,
-  #about .left-6,
-  #about .left-10,
-  #about .right-7 {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-  }
-  #about .px-\[80px\] {
-    padding: 8px 18px !important;
-    font-size: 13px !important;
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    margin: 4px !important;
-    display: inline-block !important;
-  }
-
-  /* What I Build Mobile Fixes */
-  #what-i-build .gap-20 {
-    gap: 12px !important;
-    justify-content: space-between !important;
-    flex-wrap: wrap !important;
-  }
-  #what-i-build .top-2,
-  #what-i-build .top-3,
-  #what-i-build .top-4,
-  #what-i-build .left-1,
-  #what-i-build .left-2,
-  #what-i-build .left-3,
-  #what-i-build .right-0 {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-  }
-
-  /* Skills Section Mobile Fixes */
-  #skills .px-8.py-4 {
-    padding: 10px 18px !important;
-  }
-  #skills .top-2,
-  #skills .top-3,
-  #skills .top-4,
-  #skills .top-6,
-  #skills .left-2,
-  #skills .right-4 {
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-    right: auto !important;
-  }
-
-  /* Projects & Project Cards Mobile Fixes */
-  #portfolio article {
-    min-height: auto !important;
-  }
-  #portfolio .absolute.bottom-5 {
-    position: relative !important;
-    bottom: auto !important;
-    left: auto !important;
-    right: auto !important;
-    margin-top: 16px !important;
-  }
-  #portfolio .top-1,
-  #portfolio .top-2,
-  #portfolio .top-3,
-  #portfolio .top-6,
-  #portfolio .left-2,
-  #portfolio .left-4,
-  #portfolio .right-2,
-  #portfolio .right-6 {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-  }
-
-  /* Experience Section Mobile Fixes */
-  #experience .designer-card {
-    height: auto !important;
-  }
-  #experience .top-3,
-  #experience .top-9,
-  #experience .top-11,
-  #experience .top-13,
-  #experience .left-3,
-  #experience .left-5,
-  #experience .right-6 {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-  }
-
-  /* Engineering Philosophy Mobile Fixes */
-  #philosophy .grid {
-    height: auto !important;
-    grid-template-columns: 1fr !important;
-  }
-  #philosophy .left-3,
-  #philosophy .top-3,
-  #philosophy .top-5,
-  #philosophy .top-9,
-  #philosophy .right-4 {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-  }
-
-  /* Contact Section Mobile Fixes */
-  #contact .container {
-    height: auto !important;
-  }
-  #contact .grid {
-    height: auto !important;
-    grid-template-columns: 1fr !important;
-  }
-  #contact .designer-card {
-    height: auto !important;
-  }
-  #contact .absolute.left-3.bottom-3 {
-    position: relative !important;
-    left: auto !important;
-    bottom: auto !important;
-    margin-top: 24px !important;
-    width: 100% !important;
-  }
-  #contact .left-3,
-  #contact .top-2,
-  #contact .top-3,
-  #contact .top-4,
-  #contact .top-5,
-  #contact .top-9,
-  #contact .right-5 {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-  }
-
-  /* Footer Mobile Fixes */
+  /* Fixed desktop heights clip content once cards become single-column. */
+  #about article,
+  #experience .designer-card,
+  #contact .container,
+  #contact .grid,
+  #contact .designer-card,
+  #contact .h-37,
+  #contact .h-19,
+  #contact .h-20,
   footer,
   footer > div {
-    height: auto !important;
+    height: auto;
   }
+
+  #about .grid,
+  #philosophy .grid,
+  #contact .grid,
   footer .grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: minmax(0, 1fr);
   }
-  footer .left-3,
-  footer .left-6,
-  footer .top-3,
-  footer .top-4,
-  footer .top-5,
-  footer .top-6,
-  footer .top-11,
-  footer .top-14 {
-    position: static !important;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
+
+  #contact .absolute.left-3.bottom-3 {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  /* Decorative offsets look intentional on desktop but create uneven gutters on phones. */
+  #about .relative,
+  #what-i-build .relative,
+  #skills .relative,
+  #portfolio .relative,
+  #experience .relative,
+  #philosophy .relative,
+  #contact .relative,
+  footer .relative {
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  #portfolio article {
+    min-height: 0;
+  }
+
+  #portfolio .absolute.bottom-5 {
+    position: relative;
+    inset: auto;
+    margin-top: 1rem;
+  }
+
+  #what-i-build .gap-20 {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  footer .px-8 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }

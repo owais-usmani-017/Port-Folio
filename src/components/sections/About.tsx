@@ -77,12 +77,12 @@ export default function About() {
         <motion.article
           {...reveal}
           transition={{ duration: 0.7 }}
-          className="mt-8 h-[252px] rounded-[28px] border border-[var(--border)] bg-white px-9 py-8"
+          className="mt-8 h-[252px] max-lg:h-auto rounded-[28px] border border-[var(--border)] bg-white px-9 py-8 max-sm:px-6"
         >
-          <div className="grid h-full lg:grid-cols-[400px_1fr]">
+          <div className="grid h-full max-lg:h-auto max-lg:gap-6 lg:grid-cols-[400px_1fr]">
             {/* Left: Developer Profile */}
-            <div className="flex h-full items-center border-[var(--border)] pr-10">
-              <div className="flex absolute  left-30 items-start gap-7">
+            <div className="flex h-full max-lg:h-auto items-center border-[var(--border)] pr-10 max-lg:pr-0">
+              <div className="flex absolute left-30 max-lg:static items-start gap-7 max-sm:gap-4">
                 {/* Icon */}
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-amber-500/10 text-amber-500">
                   <Brain size={25} />
@@ -104,7 +104,7 @@ export default function About() {
             </div>
 
             {/* Right: Description */}
-            <div className="flex h-full items-center pl-10">
+            <div className="flex h-full max-lg:h-auto items-center pl-10 max-lg:pl-0">
               <div className="w-full max-w-[680px]">
                 <p className="text-base leading-[1.65] text-[var(--secondary)]">
                   I&apos;m a final-year Computer Science student focused on
@@ -151,11 +151,11 @@ export default function About() {
           <motion.article
             {...reveal}
             transition={{ duration: 0.7, delay: 0.08 }}
-            className="h-[248px] rounded-[28px] border border-[var(--border)] bg-white px-6 py-6"
+            className="h-[248px] max-lg:h-auto rounded-[28px] border border-[var(--border)] bg-white px-6 py-6"
           >
-            <div className="relative h-full">
+            <div className="relative h-full max-lg:h-auto">
               {/* Main Education Content */}
-              <div className=" top-3 flex absolute left-4 top-5 items-center gap-5">
+              <div className="top-3 flex absolute left-4 top-5 max-lg:static max-lg:items-start gap-5 max-sm:gap-3">
                 {/* Icon */}
                 <div className="flex h-14 w-14 items-center left-2 justify-center rounded-2xl bg-indigo-500/10 text-indigo-500">
                   <GraduationCap size={24} />
@@ -183,12 +183,12 @@ export default function About() {
               </div>
 
               {/* Year */}
-              <span className="absolute right-4 top-5 text-[13px] font-bold text-indigo-500">
+              <span className="absolute right-4 top-5 max-lg:static max-lg:mt-4 block text-[13px] font-bold text-indigo-500">
                 2023–2027
               </span>
 
               {/* Scores */}
-              <div className="absolute bottom-10 left-5 right-0 grid grid-cols-2 border-[var(--border)] pt-3">
+              <div className="absolute bottom-10 left-5 right-0 max-lg:static max-lg:mt-6 grid grid-cols-2 border-[var(--border)] pt-3">
                 <div>
                   <p className="text-[11px] uppercase tracking-wider text-[var(--foreground-muted)]">
                     Class XII
@@ -216,12 +216,12 @@ export default function About() {
           <motion.article
             {...reveal}
             transition={{ duration: 0.7, delay: 0.16 }}
-            className="relative h-[248px] overflow-hidden rounded-[28px] border border-amber-500/20 bg-gradient-to-br from-amber-50 via-white to-orange-50 px-6 py-6"
+            className="relative h-[248px] max-lg:h-auto overflow-hidden rounded-[28px] border border-amber-500/20 bg-gradient-to-br from-amber-50 via-white to-orange-50 px-6 py-6"
           >
             {/* Background Glow */}
             <div className="absolute -right-12 -top-12 h-56 w-56 rounded-full bg-amber-400/10 blur-3xl" />
 
-            <div className="relative h-full absolute top-5 left-4 ">
+            <div className="relative h-full absolute top-5 left-4 max-lg:static max-lg:h-auto">
               {/* Label */}
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3 w-3 shrink-0">
@@ -248,7 +248,7 @@ export default function About() {
               {/* Button */}
               <a
                 href="#contact"
-                className="bg-black absolute bottom-0 left-0 inline-flex items-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-orange-500 hover:shadow-lg hover:shadow-amber-500/20"
+                className="bg-black absolute bottom-0 left-0 max-lg:static max-lg:mt-6 inline-flex items-center gap-2 rounded-xl bg-amber-500 px-5 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-orange-500 hover:shadow-lg hover:shadow-amber-500/20"
               >
                 Let&apos;s talk
                 <ArrowUpRight size={16} />
@@ -264,8 +264,8 @@ export default function About() {
           transition={{ duration: 0.7, delay: 0.24 }}
           className="mt-5 relative rounded-[28px] border border-[var(--border)] bg-white px-9 py-6 min-h-[120px]"
         >
-          <div className="flex top-3 left-4 relative items-center justify-between gap-8">
-            <div className="flex items-center gap-7">
+          <div className="flex top-3 left-4 relative max-lg:top-0 max-lg:left-0 max-sm:flex-col max-sm:items-start items-center justify-between gap-8 max-sm:gap-5">
+            <div className="flex items-center gap-7 max-sm:gap-4">
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-500">
                 <Layers size={25} />
               </div>
@@ -283,18 +283,18 @@ export default function About() {
 
             <a
               href="#skills"
-              className="inline-flex items-center gap-2 text-sm font-bold right-7 absolute text-emerald-600 transition-transform duration-200 hover:translate-x-1"
+              className="inline-flex items-center gap-2 text-sm font-bold right-7 absolute max-sm:static text-emerald-600 transition-transform duration-200 hover:translate-x-1"
             >
               View complete skills
               <ArrowUpRight size={16} />
             </a>
           </div>
 
-          <div className="mt-4 left-6 flex flex-wrap gap-10 border-[var(--border)] pt-4">
+          <div className="mt-4 left-6 max-lg:left-0 flex flex-wrap gap-10 max-lg:gap-3 border-[var(--border)] pt-4">
             {techStack.map((technology) => (
               <span
                 key={technology}
-                className="  rounded-full border top-6 relative border-[var(--border)] bg-[var(--section-bg)] left-10 px-[80px] py-[40px] text-md font-medium text-[var(--secondary)] transition-all duration-200 hover:-translate-y-1 hover:border-amber-400 hover:text-amber-500"
+                className="rounded-full border top-6 relative max-lg:top-0 border-[var(--border)] bg-[var(--section-bg)] left-10 max-lg:left-0 px-[80px] max-lg:px-4 py-[40px] max-lg:py-2 text-md font-medium text-[var(--secondary)] transition-all duration-200 hover:-translate-y-1 hover:border-amber-400 hover:text-amber-500"
               >
                 {technology}
               </span>
