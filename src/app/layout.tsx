@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Plus_Jakarta_Sans, JetBrains_Mono, Fraunces } from "next/font/google";
 import { ThemeProvider } from "@/lib/theme-context";
 import "./globals.css";
@@ -93,12 +94,36 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Owais Usmani",
+    url: "https://owaisusmani.me",
+    jobTitle: "AI Automation & Full-Stack Developer",
+    description:
+      "Owais Usmani is an AI Automation and Full-Stack Developer building AI agents, intelligent automations, LLM applications, and scalable web systems.",
+    sameAs: [
+      "https://github.com/owais-usmani-017",
+      "https://www.linkedin.com/in/owais-usmani",
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${sans.variable} ${mono.variable} ${display.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <Script
+          id="person-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
+      </head>
+
       <body className="antialiased min-h-screen">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
