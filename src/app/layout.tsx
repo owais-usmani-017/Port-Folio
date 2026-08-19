@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Plus_Jakarta_Sans, JetBrains_Mono, Fraunces } from "next/font/google";
 import { ThemeProvider } from "@/lib/theme-context";
 import "./globals.css";
@@ -115,7 +114,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <Script
+        <script
           id="person-structured-data"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
