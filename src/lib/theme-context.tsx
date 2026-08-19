@@ -13,29 +13,26 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("dark");
+  // Always start in light mode
+  const [theme, setThemeState] = useState<Theme>("light");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check saved preference or system preference
-    const savedTheme = localStorage.getItem("portfolio-theme") as Theme | null;
-    if (savedTheme && (savedTheme === "dark" || savedTheme === "light")) {
-      setThemeState(savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-      document.documentElement.classList.toggle("light", savedTheme === "light");
-    } else {
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const initialTheme = prefersDark ? "dark" : "light";
-      setThemeState(initialTheme);
-      document.documentElement.classList.toggle("dark", prefersDark);
-      document.documentElement.classList.toggle("light", !prefersDark);
-    }
+    // Always force light mode when the website is opened
+    setThemeState("light");
+
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+
+    // Remove any previously saved dark-mode preference
+    localStorage.removeItem("portfolio-theme");
+
     setMounted(true);
   }, []);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem("portfolio-theme", newTheme);
+
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(newTheme);
   };
@@ -54,8 +51,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
 export function useTheme() {
   const context = useContext(ThemeContext);
+
   if (!context) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
+
   return context;
 }
