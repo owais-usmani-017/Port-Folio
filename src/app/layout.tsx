@@ -24,9 +24,68 @@ const display = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Owais Usmani | AI Developer & Full-Stack Engineer",
+  metadataBase: new URL("https://owaisusmani.me"),
+
+  title: "Owais Usmani | AI Automation & Full-Stack Developer",
+
   description:
-    "Portfolio of Owais Usmani, an AI Developer and Full-Stack Engineer specializing in agentic AI systems, automated workflows, and high-performance web applications.",
+    "Owais Usmani is an AI Automation and Full-Stack Developer building AI agents, intelligent automations, LLM applications, and scalable web systems.",
+
+  keywords: [
+    "Owais Usmani",
+    "AI Developer",
+    "AI Automation Developer",
+    "Full-Stack Developer",
+    "AI Agents",
+    "n8n Automation",
+    "LLM Applications",
+    "RAG",
+    "Next.js Developer",
+    "React Developer",
+    "Node.js Developer",
+  ],
+
+  authors: [
+    {
+      name: "Owais Usmani",
+      url: "https://owaisusmani.me",
+    },
+  ],
+
+  creator: "Owais Usmani",
+
+  alternates: {
+    canonical: "https://owaisusmani.me",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  openGraph: {
+    type: "website",
+    url: "https://owaisusmani.me",
+    title: "Owais Usmani | AI Automation & Full-Stack Developer",
+    description:
+      "AI Automation and Full-Stack Developer building AI agents, intelligent automations, LLM applications, and scalable web systems.",
+    siteName: "Owais Usmani",
+    locale: "en_US",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Owais Usmani | AI Automation & Full-Stack Developer",
+    description:
+      "AI Automation and Full-Stack Developer building AI agents, intelligent automations, LLM applications, and scalable web systems.",
+  },
 };
 
 export default function RootLayout({
