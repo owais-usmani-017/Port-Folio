@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, useScroll, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, Sparkles, FileText } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
+import { Menu, X, Sun, Moon, Sparkles } from "lucide-react";
 import { useTheme } from "@/lib/theme-context";
 
 const navItems = [
@@ -16,7 +16,6 @@ const navItems = [
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const { scrollYProgress } = useScroll();
@@ -39,7 +38,7 @@ export default function Navbar() {
       
 
       <header
-        className={`fixed left-0 top-3 z-40 w-full transition-all duration-300 ${
+        className={`fixed left-0 top-3 z-[60] w-full transition-all duration-300 ${
           scrolled ? "glass-panel py-5" : "bg-transparent py-9"
         }`}
       >
@@ -110,63 +109,48 @@ export default function Navbar() {
                 Hire Me
               </a>
 
-              {/* Mobile Menu Button */}
-              <button
-                type="button"
-                aria-label={isOpen ? "Close menu" : "Open menu"}
-                onClick={() => setIsOpen((prev) => !prev)}
-                className="flex h-12 w-12 items-center justify-center rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--foreground)] lg:hidden"
-              >
-                {isOpen ? <X size={22} /> : <Menu size={22} />}
-              </button>
+              {/* This native disclosure works even before the client JavaScript loads. */}
+              <details className="group relative lg:hidden">
+                <summary
+                  aria-label="Open navigation menu"
+                  className="flex h-12 w-12 cursor-pointer list-none items-center justify-center rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] text-[var(--foreground)] [&::-webkit-details-marker]:hidden"
+                >
+                  <Menu size={22} className="group-open:hidden" />
+                  <X size={22} className="hidden group-open:block" />
+                </summary>
+
+                <nav className="absolute right-0 top-full z-[70] mt-4 w-[min(22rem,calc(100vw-2rem))] rounded-2xl border border-[var(--card-border)] bg-[var(--glass-bg)] p-5 shadow-xl backdrop-blur-xl">
+                  <div className="flex flex-col gap-2">
+                    {navItems.map((item) => (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        className="w-full rounded-xl px-4 py-3.5 text-left text-base font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--card-bg-subtle)] hover:text-amber-500"
+                      >
+                        {item.label}
+                      </a>
+                    ))}
+
+                    <div className="mt-4 flex gap-2 border-t border-[var(--card-border)] pt-4">
+                      <a
+                        href="#contact"
+                        className="flex-1 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 py-3.5 text-center text-sm font-bold text-white shadow-md shadow-amber-500/20"
+                      >
+                        Let&apos;s Talk
+                      </a>
+                      <a
+                        href="/resume/Owais-Usmani-Resume.pdf"
+                        download
+                        className="inline-flex items-center justify-center rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-4 text-sm font-bold text-[var(--foreground)] transition-colors hover:border-amber-500/60 hover:text-amber-500"
+                      >
+                        CV
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+              </details>
             </div>
           </div>
-
-          {/* Mobile Navigation Drawer */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.nav
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="mt-4 overflow-hidden rounded-2xl border border-[var(--card-border)] bg-[var(--glass-bg)] p-5 shadow-xl backdrop-blur-xl lg:hidden"
-              >
-                <div className="flex flex-col gap-2">
-                  <div className="mb-3 flex items-center justify-between border-b border-[var(--card-border)] pb-4">
-                    <span className="flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                      <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                      Available for Roles
-                    </span>
-                    <span className="text-sm text-[var(--foreground-muted)]">
-                      Delhi NCR / Remote
-                    </span>
-                  </div>
-
-                  {navItems.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="rounded-xl px-4 py-3.5 text-base font-medium text-[var(--foreground)] transition-colors hover:bg-[var(--card-bg-subtle)] hover:text-amber-500"
-                    >
-                      {item.label}
-                    </a>
-                  ))}
-
-                  <div className="mt-4 flex gap-2 border-t border-[var(--card-border)] pt-4">
-                    <a
-                      href="#contact"
-                      onClick={() => setIsOpen(false)}
-                      className="flex-1 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 py-3.5 text-center text-sm font-bold text-white shadow-md shadow-amber-500/20"
-                    >
-                      Let&apos;s Talk
-                    </a>
-                  </div>
-                </div>
-              </motion.nav>
-            )}
-          </AnimatePresence>
         </div>
       </header>
     </>

@@ -153,42 +153,39 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.08 }}
             className="h-[248px] max-lg:h-auto rounded-[28px] border border-[var(--border)] bg-white px-6 py-6"
           >
-            <div className="relative h-full max-lg:h-auto">
-              {/* Main Education Content */}
-              <div className="top-3 flex absolute left-4 top-5 max-lg:static max-lg:items-start gap-5 max-sm:gap-3">
-                {/* Icon */}
-                <div className="flex h-14 w-14 items-center left-2 justify-center rounded-2xl bg-indigo-500/10 text-indigo-500">
-                  <GraduationCap size={24} />
+            <div className="flex h-full flex-col">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-start gap-5 max-sm:gap-3">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-500">
+                    <GraduationCap size={24} />
+                  </div>
+
+                  <div className="pt-2.5">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-indigo-500">
+                      Education
+                    </p>
+
+                    <h3 className="font-display mt-2 max-w-[390px] text-[25px] font-medium leading-[1.08] text-[var(--primary)]">
+                      B.Tech in Computer Science
+                      <br />& Engineering
+                    </h3>
+
+                    <p className="mt-2 text-[14px] leading-[1.3] text-[var(--secondary)]">
+                      KCC Institute of Technology & Management
+                    </p>
+
+                    <p className="mt-1 text-[13px] leading-[1.3] text-[var(--foreground-muted)]">
+                      Greater Noida · AKTU Lucknow
+                    </p>
+                  </div>
                 </div>
 
-                {/* Education Text */}
-                <div className=" pt-2.5">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-indigo-500">
-                    Education
-                  </p>
-
-                  <h3 className="font-display mt-2 max-w-[390px] text-[25px] font-medium leading-[1.08] text-[var(--primary)]">
-                    B.Tech in Computer Science
-                    <br />& Engineering
-                  </h3>
-
-                  <p className="mt-2 text-[14px] leading-[1.3] text-[var(--secondary)]">
-                    KCC Institute of Technology & Management
-                  </p>
-
-                  <p className="mt-1 text-[13px] leading-[1.3] text-[var(--foreground-muted)]">
-                    Greater Noida · AKTU Lucknow
-                  </p>
-                </div>
+                <span className="shrink-0 pt-2 text-[13px] font-bold text-indigo-500">
+                  2023–2027
+                </span>
               </div>
 
-              {/* Year */}
-              <span className="absolute right-4 top-5 max-lg:static max-lg:mt-4 block text-[13px] font-bold text-indigo-500">
-                2023–2027
-              </span>
-
-              {/* Scores */}
-              <div className="absolute bottom-10 left-5 right-0 max-lg:static max-lg:mt-6 grid grid-cols-2 border-[var(--border)] pt-3">
+              <div className="mt-6 grid grid-cols-2 border-t border-[var(--border)] pt-3 lg:mt-auto">
                 <div>
                   <p className="text-[11px] uppercase tracking-wider text-[var(--foreground-muted)]">
                     Class XII
@@ -199,7 +196,7 @@ export default function About() {
                   </p>
                 </div>
 
-                <div className=" border-[var(--border)] pl-8">
+                <div className="border-l border-[var(--border)] pl-8">
                   <p className="text-[11px] uppercase tracking-wider text-[var(--foreground-muted)]">
                     Class X
                   </p>

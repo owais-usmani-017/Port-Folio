@@ -61,12 +61,12 @@ export default function Education() {
             >
               <div>
                 {/* Header Period + Score */}
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <span className="text-xs font-bold uppercase tracking-wider text-[var(--foreground-muted)]">
                     {item.period}
                   </span>
                   <span
-                    className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-bold ${item.scoreColor}`}
+                    className={`inline-flex shrink-0 items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-bold ${item.scoreColor}`}
                   >
                     <Award size={12} />
                     {item.score}

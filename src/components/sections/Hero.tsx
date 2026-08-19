@@ -69,7 +69,7 @@ export default function Hero() {
             <br></br>
 
             {/* CTAs */}
-            <div className="mt-[4.5rem] flex flex-wrap items-center gap-5">
+            <div className="mt-[4.5rem] flex flex-wrap items-center gap-3 sm:gap-5">
               <a
                 href="#projects"
                 className="hidden h-12 min-w-[190px] items-center justify-center rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-8 text-sm font-bold text-white shadow-lg shadow-amber-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-xl hover:shadow-amber-500/40 active:scale-[0.98] sm:inline-flex"
@@ -81,10 +81,7 @@ export default function Hero() {
               <a
                 href="/resume/Owais-Usmani-Resume.pdf"
                 download
-                className="hidden h-12 min-w-[190px] rounded-xl items-center justify-center border-2 
-                border-[var(--card-border)] bg-[var(--card-bg)] px-20 py-6 text-base font-bold text-[var(--foreground)] shadow-md transition-all duration-300 hover:border-amber-500/60 hover:bg-[var(--card-bg-subtle)]
-                 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-xl hover:shadow-amber-500/40 active:scale-[0.98] sm:inline-flex"
-                
+                className="inline-flex h-12 min-w-[150px] items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-5 text-sm font-bold text-white shadow-lg shadow-amber-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:shadow-xl hover:shadow-amber-500/40 active:scale-[0.98] sm:min-w-[190px] sm:px-8 sm:text-base"
               >
                 Download CV
                 <Download size={19} className="text-amber-500" />
@@ -92,7 +89,7 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-10 rounded-2xl px-20 py-6 text-base font-bold text-[var(--foreground-secondary)] transition-all duration-300 hover:text-amber-500 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-bold text-[var(--foreground-secondary)] transition-all duration-300 hover:-translate-y-0.5 hover:text-amber-500 sm:gap-3 sm:px-8 sm:text-base"
               >
                 Let&apos;s Connect &rarr;
               </a>
