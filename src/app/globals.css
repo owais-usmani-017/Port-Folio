@@ -70,6 +70,16 @@
   }
 }
 
+/* Preserve the established desktop composition without affecting mobile spacing. */
+@media (min-width: 1024px) {
+  *,
+  ::before,
+  ::after {
+    margin: 0;
+    padding: 0;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
